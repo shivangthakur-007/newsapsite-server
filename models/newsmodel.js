@@ -1,4 +1,4 @@
-import {Schema, model } from "mongoose";
+import { Schema, model } from "mongoose";
 
 const newsapsite = new Schema(
   {
@@ -26,9 +26,9 @@ const newsapsite = new Schema(
       maxLength: [500, "Description should be less than 500 characters."],
       trim: true,
     },
-    category:{
+    category: {
       type: String,
-      required: [true, "Category is required"]
+      required: [true, "Category is required"],
     },
     numberofTitle: {
       type: Number,
@@ -44,5 +44,5 @@ const newsapsite = new Schema(
   }
 );
 
-const Newsapsite= new model("Newsapsite", newsapsite)
+const Newsapsite = new model("Newsapsite", newsapsite);
 export default Newsapsite;
