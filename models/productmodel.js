@@ -14,13 +14,13 @@ const ProductSchema = new Schema({
   category: {
     type: String,
     required: [true, "Category is required"],
-    maxlength: [20, "Category upto 20 characters."],
+    maxlength: [30, "Category upto 30 characters."],
     trim: true,
   },
   name: {
     type: String,
     required: [true, "Name is required"],
-    maxlength: [20, "Category upto 20 characters."],
+    minlength: [4, "Name atleast 4 characters."],
     trim: true,
   },
   review: { type: Number, default: 0 },

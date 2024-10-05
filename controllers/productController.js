@@ -3,6 +3,19 @@ import appError from "../utils/error.Utils.js";
 import cloudinary from "cloudinary";
 import fs from "fs/promises";
 
+const getProducts = async function (req, res, next) {
+  try {
+    const products = await ProductStore.find({});
+    res.status(200).json({
+      success: true,
+      message: "All Products",
+      products,
+    });
+  } catch (e) {
+    return next(new appError(e.message, 400));
+  }
+};
+
 const createProducts = async function (req, res, next) {
   try {
     const { category, name, review, Role, price } = req.body;
@@ -48,4 +61,4 @@ const createProducts = async function (req, res, next) {
   }
 };
 
-export default createProducts;
+export { createProducts, getProducts };
