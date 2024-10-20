@@ -4,7 +4,7 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import errorMiddleware from "./middlewares/error.middleware.js";
 import newsRouter from "./routers/newsrourter.js";
-import productRouter from "./routers/productrouter.js";
+import blogrouter from "./routers/blogs.router.js";
 
 const app = express();
 
@@ -21,7 +21,7 @@ app.use("/ping", (req, res) => {
 });
 
 app.use("/api/vi/news", newsRouter);
-app.use("/api/vi/product", productRouter);
+app.use("/api/vi/blogs", blogrouter);
 
 app.all("*", (req, res) => {
   res.status(404).send("Oops Page Not found");
